@@ -10,7 +10,7 @@ class Course extends React.Component {
 
   handleSubmit(event) {
     let course = {
-      id: this.props.courses.length + 1,
+      id: this.props.courses.length,
       course_name: this.state.course_name
     }
     let hasMatch = false;
@@ -26,7 +26,7 @@ class Course extends React.Component {
       this.setState({
         course_name: ''
       })
-      this.props.onIncrementClick(course);
+      this.props.addCourse(course);
     }
     event.preventDefault();
   }
@@ -54,7 +54,6 @@ class Course extends React.Component {
   }
 }
 function mapStateToProps(state) {
-  console.log('mapStateToProps : ' + JSON.stringify(state))
   return {
     count: state.count,
     courses: state.courses
@@ -62,7 +61,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    onIncrementClick: (course) => {
+    addCourse: (course) => {
       const action = { type: 'ADDCOURSE', course: course };
       dispatch(action);
     }

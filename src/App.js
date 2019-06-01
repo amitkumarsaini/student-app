@@ -8,15 +8,15 @@ import store from './store/index'
 function App() {
   return (
     <div className="App">
-      <h3>Students</h3>
+      <h3 className="mainHeader">Students</h3>
       <div className="row">
-        <div className="col-md-4">
+        <div className="col-md-6">
           <StudentGrid store={store} />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-3">
           <AddStudent store={store} />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-3">
           <Course store={store} />
         </div>
       </div>
